@@ -5,8 +5,7 @@ import { MenuOutlined } from '@ant-design/icons'
 import { Avatar, Flex, Menu, Tag } from 'antd'
 import { useRouter } from 'next/navigation'
 import { NavigationItem } from '../../types'
-
-import { Logo } from './components/Logo'
+import { Logo } from '../Logo'
 
 interface Props {
   keySelected?: string
