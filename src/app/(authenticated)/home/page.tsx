@@ -1,16 +1,14 @@
 'use client'
 
-import { useState } from 'react'
-import { Typography, Form, Input, Select, Button, Space } from 'antd'
-import { UserOutlined, LockOutlined, LoginOutlined } from '@ant-design/icons'
-const { Title, Text } = Typography
 import { useUserContext } from '@/core/context'
-import { useRouter, useParams } from 'next/navigation'
-import { useUploadPublic } from '@/core/hooks/upload'
-import { useSnackbar } from 'notistack'
-import dayjs from 'dayjs'
 import { Api } from '@/core/trpc'
 import { PageLayout } from '@/designSystem'
+import { LockOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons'
+import { Button, Form, Input, Select, Space, Typography } from 'antd'
+import { useRouter } from 'next/navigation'
+import { useSnackbar } from 'notistack'
+import { useState } from 'react'
+const { Title, Text } = Typography
 
 export default function LoginPage() {
   const router = useRouter()
@@ -20,7 +18,7 @@ export default function LoginPage() {
 
   const [loading, setLoading] = useState(false)
 
-  const { mutateAsync: loginMutation } = Api.user.login.useMutation()
+  const { mutateAsync: loginMutation } = Api.user.create.useMutation()
 
   const handleLogin = async (values: {
     email: string
